@@ -1,0 +1,119 @@
+body {
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    padding: 24px 18px 18px 18px;
+    width: 340px;
+}
+
+.calculator-header {
+    text-align: left;
+    margin-bottom: 8px;
+}
+.brand {
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+.model {
+    font-size: 0.8em;
+    color: #444;
+}
+.digits {
+    font-size: 0.8em;
+    color: #888;
+    text-align: right;
+}
+.display {
+    background: #eaeaea;
+    border-radius: 6px;
+    font-size: 2.1em;
+    text-align: right;
+    padding: 16px 12px;
+    margin-bottom: 12px;
+    min-height: 38px;
+    letter-spacing: 2px;
+    font-family: 'Consolas', monospace;
+}
+.button-row {
+    display: flex;
+    margin-bottom: 8px;
+}
+.btn {
+    flex: 1;
+    margin: 2px;
+    padding: 16px 0;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
+    background: #f7f7f7;
+    color: #222;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: background 0.2s;
+}
+.btn:active {
+    filter: brightness(0.9);
+}
+.btn.ac {
+    background: #b4005a;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #b4005a;
+}
+.btn.ce {
+    background: #f8bbd0;
+    color: #a00;
+    font-weight: bold;
+    border: 2px solid #b4005a;
+}
+.btn.equal {
+    background: #fff;
+    border: 2px solid #222;
+    color: #222;
+    font-weight: bold;
+}
+.btn[data-action="plus"],
+.btn[data-action="minus"],
+.btn[data-action="multiply"],
+.btn[data-action="divide"] {
+    background: #fff;
+    color: #222;
+    border: 2px solid #222;
+    font-weight: bold;
+}
+.btn[data-action="mu"],
+.btn[data-action="auto-replay"],
+.btn[data-action="percent"] {
+    background: #e6e6e6;
+    color: #222;
+    font-weight: bold;
+    border: 2px solid #bbb;
+}
+.btn[data-action="0"],
+.btn[data-action="1"],
+.btn[data-action="2"],
+.btn[data-action="3"],
+.btn[data-action="4"],
+.btn[data-action="5"],
+.btn[data-action="6"],
+.btn[data-action="7"],
+.btn[data-action="8"],
+.btn[data-action="9"],
+.btn[data-action="00"],
+.btn[data-action="dot"] {
+    background: #444;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #222;
+}
