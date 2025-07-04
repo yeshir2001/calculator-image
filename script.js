@@ -56,9 +56,12 @@ function handleOperator(nextOperator) {
 
 function handleEqual() {
     if (!operator) return;
+    const prev = current;
     handleOperator(operator);
     operator = null;
     waitingForOperand = false;
+    saveToHistory(prev + ' ' + operator, current);
+    loadHistory();
 }
 
 function handlePercent() {
@@ -100,5 +103,28 @@ document.querySelectorAll('.btn').forEach(btn => {
         updateDisplay();
     });
 });
+
+// Add calculation history support
+const historyList = document.createElement('div');
+historyList.className = 'history-list';
+display.parentNode.appendChild(historyList);
+
+function saveToHistory(expression, result) {
+    fetch('http://localhost:3000/api/history', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ expression, result })
+    });
+}
+
+function loadHistory() {
+    fetch('http://localhost:3000/api/history')
+        .then(res => res.json())
+        .then(history => {
+            historyList.innerHTML = '<b>History</b>' + history.map(h => `<div>${h.expression} = <b>${h.result}</b></div>`).join('');
+        });
+}
+
+window.addEventListener('DOMContentLoaded', loadHistory);
 
 updateDisplay();
